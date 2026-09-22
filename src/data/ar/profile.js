@@ -34,7 +34,7 @@ export const profile = {
 }
 
 export const socialLinks = [
-  { id: 'github', label: 'GitHub', url: 'https://github.com/YOUR_GITHUB_USERNAME' },
+  { id: 'github', label: 'GitHub', url: 'https://github.com/AhmedMohammed-IT' },
   { id: 'linkedin', label: 'LinkedIn', url: 'YOUR_LINKEDIN_URL' },
   { id: 'email', label: 'البريد الإلكتروني', url: `mailto:${profile.email}` },
 ]

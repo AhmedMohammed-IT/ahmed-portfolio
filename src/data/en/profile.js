@@ -39,11 +39,11 @@ export const profile = {
 
 /**
  * Social / contact links.
- * TODO(Ahmed): replace the two placeholders below. While a value still contains "YOUR_",
+ * TODO(Ahmed): replace YOUR_LINKEDIN_URL below. While a value still contains "YOUR_",
  * the link is hidden on the live site (and shown as a dashed placeholder in dev mode).
  */
 export const socialLinks = [
-  { id: 'github', label: 'GitHub', url: 'https://github.com/YOUR_GITHUB_USERNAME' },
+  { id: 'github', label: 'GitHub', url: 'https://github.com/AhmedMohammed-IT' },
   { id: 'linkedin', label: 'LinkedIn', url: 'YOUR_LINKEDIN_URL' },
   { id: 'email', label: 'Email', url: `mailto:${profile.email}` },
 ]
