@@ -1,0 +1,9 @@
+# Force these as binary so Windows' core.autocrlf never rewrites bytes inside them —
+# PDF/PNG/ICO formats store exact byte offsets internally and a single inserted \r breaks them.
+*.pdf -text -diff binary
+*.png -text -diff binary
+*.jpg -text -diff binary
+*.jpeg -text -diff binary
+*.ico -text -diff binary
+*.woff -text -diff binary
+*.woff2 -text -diff binary
