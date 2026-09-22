@@ -148,6 +148,11 @@
   font-weight: 500;
 }
 
+.mobileActions {
+  display: flex;
+  margin-block-start: 12px;
+}
+
 .mobileCv {
   width: 100%;
   margin-block: 8px 24px;

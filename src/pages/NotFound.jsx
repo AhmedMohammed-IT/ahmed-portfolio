@@ -1,13 +1,15 @@
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useContent } from '@/context/LocaleContext'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
 import { Button } from '@/components/ui/Button'
 import styles from './NotFound.module.css'
 
 export default function NotFound({ title, text }) {
-  const { ui, profile } = useContent()
+  const { ui, profile, dir } = useContent()
   const copy = ui.notFound
   useDocumentTitle(`${title ?? copy.title} | ${profile.name}`)
+  // "Back" points right in RTL, toward the start of the reading direction.
+  const BackIcon = dir === 'rtl' ? ArrowRight : ArrowLeft
 
   return (
     <section className={styles.wrap} aria-labelledby="notfound-title">
@@ -19,7 +21,7 @@ export default function NotFound({ title, text }) {
           {title ?? copy.title}
         </h1>
         <p className={styles.text}>{text ?? copy.text}</p>
-        <Button to="/" icon={<ArrowLeft size={18} aria-hidden="true" />}>
+        <Button to="/" icon={<BackIcon size={18} aria-hidden="true" />}>
           {copy.action}
         </Button>
       </div>

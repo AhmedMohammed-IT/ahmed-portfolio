@@ -43,6 +43,11 @@
   transform: translateX(2px);
 }
 
+/* In RTL the "forward" nudge points the other physical way. */
+:global(html[dir='rtl']) .button:hover .icon {
+  transform: translateX(-2px);
+}
+
 .primary {
   background: var(--accent);
   color: var(--on-accent);

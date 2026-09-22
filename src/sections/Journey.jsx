@@ -5,9 +5,6 @@ import { Tag } from '@/components/ui/Tag'
 import { Timeline, TimelineItem } from '@/components/cards/TimelineItem'
 import styles from './Journey.module.css'
 
-// Finished steps carry no label; only steps that are still moving are called out.
-const STATE_LABEL = { current: 'In progress', ongoing: 'Ongoing' }
-
 export function Journey({ index: sectionIndex }) {
   const { journey, pillars, ui } = useContent()
   const copy = ui.sections.journey
@@ -18,7 +15,7 @@ export function Journey({ index: sectionIndex }) {
         <div className={styles.aside}>
           <SectionTitle id="journey-title" index={sectionIndex} {...copy} />
           <Reveal>
-            <ul className={styles.pillars} aria-label="Guiding ideas">
+            <ul className={styles.pillars} aria-label={ui.common.ariaGuidingIdeas}>
               {pillars.map((pillar) => (
                 <li key={pillar}>
                   <Tag tone="accent">{pillar}</Tag>
@@ -38,7 +35,7 @@ export function Journey({ index: sectionIndex }) {
                 </div>
                 <h3 className={styles.title}>{step.title}</h3>
                 <p className={styles.text}>{step.text}</p>
-                {STATE_LABEL[step.state] && <p className={styles.state}>{STATE_LABEL[step.state]}</p>}
+                {copy.states[step.state] && <p className={styles.state}>{copy.states[step.state]}</p>}
               </Reveal>
             </TimelineItem>
           ))}

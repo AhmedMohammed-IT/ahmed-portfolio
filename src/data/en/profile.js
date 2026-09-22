@@ -11,7 +11,7 @@ export const profile = {
     'Exploring technology, building practical solutions, and continuously learning through code.',
   location: 'Sakaka, Saudi Arabia',
 
-  email: 'ahmed784675175@gmail.com',
+  email: 'Ahmed.M.Saif.IT@gmail.com',
   // Phone is stored but hidden by default (privacy). Set showPhone: true to display it in Contact.
   phone: '0558287245',
   phoneIntl: '+966558287245',

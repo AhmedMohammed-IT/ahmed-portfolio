@@ -1,6 +1,7 @@
 /* Design tokens — the single place to tune colours, type, spacing and motion. */
 :root {
-  --font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', 'Noto Sans Arabic', Tahoma, sans-serif;
+  /* Inter covers Latin glyphs; Tajawal fills in Arabic glyphs in the same paragraph automatically. */
+  --font-sans: 'Inter Variable', 'Inter', 'Tajawal', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif;
   --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, 'Liberation Mono', monospace;
 
   --radius-sm: 8px;

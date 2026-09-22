@@ -6,6 +6,7 @@ import { useActiveSection } from '@/hooks/useActiveSection'
 import { useScrolled } from '@/hooks/useScrollState'
 import { Button } from '@/components/ui/Button'
 import { ThemeToggle } from './ThemeToggle'
+import { LanguageToggle } from './LanguageToggle'
 import styles from './Navbar.module.css'
 
 export function Navbar() {
@@ -75,6 +76,7 @@ export function Navbar() {
         </nav>
 
         <div className={styles.actions}>
+          <LanguageToggle />
           <ThemeToggle />
           <Button
             href={profile.cvUrl}
@@ -114,6 +116,9 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          <div className={styles.mobileActions}>
+            <LanguageToggle />
+          </div>
           <Button
             href={profile.cvUrl}
             download={profile.cvDownloadName}

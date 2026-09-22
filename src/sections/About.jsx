@@ -21,7 +21,7 @@ export function About({ index }) {
             ))}
           </Reveal>
 
-          <Reveal as="aside" delay={120} className={styles.facts} aria-label="Quick facts">
+          <Reveal as="aside" delay={120} className={styles.facts} aria-label={ui.common.ariaQuickFacts}>
             <dl>
               {about.facts.map((fact) => (
                 <div key={fact.label} className={styles.fact}>

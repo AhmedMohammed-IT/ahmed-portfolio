@@ -147,3 +147,9 @@ button {
     display: none !important;
   }
 }
+
+/* Latin-style letter-tracking (tight headings, wide uppercase labels) distorts Arabic's
+   connected letterforms, so it's switched off wholesale for RTL rather than per component. */
+html[dir='rtl'] * {
+  letter-spacing: normal !important;
+}

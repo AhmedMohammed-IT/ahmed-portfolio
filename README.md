@@ -1,7 +1,9 @@
 # Ahmed AL-Talool — Personal Portfolio
 
-An academic-and-technical portfolio: dark navy theme with a light mode, one calm blue accent, and case studies for real projects.
+An academic-and-technical portfolio: dark navy theme with a light mode, one calm blue accent, and case studies for real projects. Available in English and Arabic (full RTL), switchable from a button in the navbar.
 Built with **React 19 + Vite + JavaScript**, React Router, Lucide icons and plain CSS Modules — no UI framework, no heavy animation library.
+
+**Live:** https://ahmed-portfolio-gules-three.vercel.app
 
 ## Run it
 
@@ -21,23 +23,25 @@ src/
   main.jsx               providers + router
   App.jsx                layout + routes
   styles/                tokens.css (colours, spacing, motion) · base.css (reset, focus, helpers)
-  context/               ThemeContext (dark/light, saved) · LocaleContext (language → content)
+  context/               ThemeContext (dark/light, saved) · LocaleContext (language → content, saved)
   hooks/                 useReveal · useActiveSection · useScrollState · useDocumentTitle
   data/
-    index.js             language registry (add Arabic here later)
-    en/                  ALL site content lives here (see below)
+    index.js             language registry — builds { en, ar } from the folders below
+    en/                  all English site content (see below)
+    ar/                  the same content in Arabic — same file names, same keys
   sections/              Hero, About, Skills, TechStack, Journey, Experience, Projects, Education, Contact
   components/
     ui/                  Button, Reveal, SectionTitle, Tag, SocialLink, CopyButton, Icon, BrandIcon, TechIcon
     cards/               ProjectCard, ProjectCover, ProjectLinks, ExperienceCard, SkillCard, FeatureCard,
                          TimelineItem, TerminalCard
-    layout/              Navbar, Footer, Background, ScrollProgress, BackToTop, ScrollManager, ThemeToggle
+    layout/              Navbar, Footer, Background, ScrollProgress, BackToTop, ScrollManager,
+                         ThemeToggle, LanguageToggle
   pages/                 Home, ProjectDetail (/projects/:slug), NotFound
 ```
 
 ## Where to edit content
 
-Everything visitors read is plain data in `src/data/en/` — you never need to touch a component to change text.
+Everything visitors read is plain data in `src/data/en/` (English) and `src/data/ar/` (Arabic) — you never need to touch a component to change text. **Edit both folders together**, or the two languages will drift apart; `techStack.js` is the one exception (shared, English-only, since those are product names).
 
 | To change…                               | Edit                       |
 | ---------------------------------------- | -------------------------- |
@@ -45,7 +49,7 @@ Everything visitors read is plain data in `src/data/en/` — you never need to t
 | Nav labels, section headings, button text, form messages | `ui.js` |
 | About story, quick facts, "What I do", personal statement | `about.js` |
 | Skill groups and levels                  | `skills.js`                |
-| Tech-stack icon grid                     | `techStack.js`             |
+| Tech-stack icon grid (shared, edit once) | `en/techStack.js`          |
 | Learning journey timeline                | `journey.js`               |
 | Work experience                          | `experience.js`            |
 | Degree, certificates, areas of study     | `education.js`             |
@@ -53,13 +57,13 @@ Everything visitors read is plain data in `src/data/en/` — you never need to t
 
 ### Projects are hidden for now
 
-`src/data/en/projects.js` exports two lists. `projects` (what the site shows) is currently **empty**, so the Projects section, its menu item and the `/projects/…` pages are hidden automatically, and the remaining sections renumber themselves. The two prepared case studies (SAMA Captain Hub and the Coffee Shop Management System) are kept in `projectDrafts`.
+Both `src/data/en/projects.js` and `src/data/ar/projects.js` export two lists. `projects` (what the site shows) is currently **empty in both**, so the Projects section, its menu item and the `/projects/…` pages are hidden automatically, and the remaining sections renumber themselves. The two prepared case studies (SAMA Captain Hub and the Coffee Shop Management System) are kept in `projectDrafts`, already translated.
 
-To publish one: move its object from `projectDrafts` into `projects` — the section, menu item, cards and case-study page all reappear on their own.
+To publish one: move its object from `projectDrafts` into `projects` **in both languages** (same `slug` in each so the URL matches) — the section, menu item, cards and case-study page all reappear on their own.
 
 ### Add a project
 
-Open `src/data/en/projects.js` and copy one object into `projects`. Change at least `slug` (it becomes the URL `/projects/<slug>`), `name`, `summary` and the case-study fields. The card, the case-study page, and the "next project" link all appear automatically.
+Open `src/data/en/projects.js` (and its Arabic counterpart) and copy one object into `projects`. Change at least `slug` (it becomes the URL `/projects/<slug>`, keep it identical in both languages), `name`, `summary` and the case-study fields. The card, the case-study page, and the "next project" link all appear automatically.
 
 ```js
 {
@@ -95,15 +99,21 @@ Replace `public/Ahmed-CV.pdf` with the new file (keep the name), or change `cvUr
 
 ### GitHub and LinkedIn
 
-In `profile.js → socialLinks` replace `YOUR_GITHUB_USERNAME` and `YOUR_LINKEDIN_URL`. **While a value still contains `YOUR_`, the link is hidden on the live site** (so nothing ever points to a dead URL) and shown as a dashed placeholder in `npm run dev`. Do the same for each project's `links`.
+In `profile.js → socialLinks` (**both** `en/profile.js` and `ar/profile.js`) replace `YOUR_GITHUB_USERNAME` and `YOUR_LINKEDIN_URL`. **While a value still contains `YOUR_`, the link is hidden on the live site** (so nothing ever points to a dead URL) and shown as a dashed placeholder in `npm run dev`. Do the same for each project's `links`.
 
 ### Phone number
 
 The phone is stored but hidden. Set `showPhone: true` in `profile.js` to show it in the Contact section.
 
-### Add Arabic later
+### Arabic / English
 
-Content is already separated from UI. To add Arabic: copy `src/data/en` to `src/data/ar`, translate **every** file, register it in `src/data/index.js` (`ar: { locale: 'ar', dir: 'rtl', … }`) and add a language switch that calls `setLocale('ar')` from `useContent()`. Layout uses logical CSS properties, so RTL flips correctly.
+Both languages are live, switched with the button in the navbar (persisted in `localStorage`, applied before first paint so there's no flash of the wrong direction). `src/data/index.js` builds `{ en, ar }` from the two folders; `useContent()` returns whichever is active, plus `{ locale, dir, setLocale }`.
+
+Notes for editing:
+- Keep `src/data/en/*` and `src/data/ar/*` in the same shape (same keys, same array lengths) — the components don't guard against a missing key.
+- The layout uses logical CSS properties throughout, so it flips to RTL automatically; `html[dir="rtl"] * { letter-spacing: normal !important }` in `src/styles/base.css` turns off the Latin-style letter-tracking that doesn't suit Arabic.
+- `Tajawal` (via `@fontsource/tajawal`) is appended to `--font-sans` in `tokens.css` purely as a fallback — Inter still renders Latin text, the browser only reaches for Tajawal for Arabic glyphs, so no per-language font switch is needed.
+- A few "forward/back" icons (Hero's CTA, the 404 action, the project case-study back/next links) pick their Lucide icon based on `dir` — see the `dir === 'rtl' ? … : …` lines in those files if you add another directional arrow.
 
 ## Contact form
 
@@ -122,24 +132,25 @@ git push -u origin main
 
 ## Deploy to Vercel
 
-1. Push the repo to GitHub (above).
+Already live at https://ahmed-portfolio-gules-three.vercel.app, connected to the `AhmedMohammed-IT/ahmed-portfolio` GitHub repo (Vercel's GitHub App is installed on it). Every `git push` to `main` triggers a new production deploy automatically — no manual redeploy step.
+
+To set this up again from scratch (a new machine, a fresh repo, etc.):
+1. Push the repo to GitHub.
 2. On vercel.com → **Add New… → Project** → import the repo. Vercel detects Vite automatically (build `npm run build`, output `dist`).
 3. Click **Deploy**. `vercel.json` already contains the SPA rewrite (so `/projects/<slug>` works on refresh) and basic security headers.
 
 Or with the CLI: `npm i -g vercel && vercel --prod`.
 
-Netlify works too: build `npm run build`, publish `dist`, and add a `_redirects` file with `/* /index.html 200`.
+Netlify works too: build `npm run build`, publish `dist` (or drag-and-drop the `dist` folder onto app.netlify.com/drop for a one-off deploy without Git). `public/_redirects` (`/* /index.html 200`) is already in place for it.
 
-### After the first deploy
-
-- In `index.html`, change `og:image` to an absolute URL (`https://YOUR-DOMAIN/og-image.png`) and add `og:url` so link previews work everywhere.
-- Test the link on LinkedIn/WhatsApp previews.
+`index.html`'s `og:image`/`og:url` already point at the live domain above — update them if the domain ever changes.
 
 ## Production checklist
 
-- [ ] Replace `YOUR_GITHUB_USERNAME` and `YOUR_LINKEDIN_URL`
-- [ ] Read `about.js`, `skills.js` levels and each project's "problem" / "learned" text and adjust to your voice
-- [ ] Add real screenshots to each project (and GitHub / live links)
+- [x] Deployed to Vercel, connected to GitHub for auto-deploy on push
+- [x] `og:image` / `og:url` set to the live domain
+- [ ] Replace `YOUR_GITHUB_USERNAME` and `YOUR_LINKEDIN_URL` (in both `en/` and `ar/`)
+- [ ] Read `about.js`, `skills.js` levels and each project's "problem" / "learned" text and adjust to your voice (in both languages)
+- [ ] Add real screenshots to each project (and GitHub / live links), then move it from `projectDrafts` into `projects`
 - [ ] Confirm `public/Ahmed-CV.pdf` is the version you want to share
-- [ ] Set absolute `og:image` / `og:url` after choosing the domain
 - [ ] Decide whether to show the phone number (`showPhone`)

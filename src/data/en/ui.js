@@ -26,6 +26,15 @@ export const ui = {
     mobileNav: 'Mobile navigation',
     loading: 'Loading…',
     linkComingSoon: 'Link coming soon',
+    /** Shown on the language switch button: the name of the OTHER language, to switch to it. */
+    languageLabel: 'العربية',
+    switchLanguage: 'View this site in Arabic',
+    // Screen-reader-only landmark labels.
+    ariaQuickFacts: 'Quick facts',
+    ariaGuidingIdeas: 'Guiding ideas',
+    ariaSkillsUsed: 'Skills used in this role',
+    ariaTechnologies: 'Technologies',
+    ariaProjectFacts: 'Project facts',
   },
 
   sections: {
@@ -49,6 +58,8 @@ export const ui = {
       title: 'From technology to solutions',
       description:
         'Step by step — from computer fundamentals toward building things people can actually use.',
+      // Only shown for steps that are still moving (see journey.js `state`); finished steps carry no label.
+      states: { current: 'In progress', ongoing: 'Ongoing' },
     },
     experience: {
       eyebrow: 'Experience',
@@ -99,6 +110,7 @@ export const ui = {
     screenshotsEmpty: 'Screenshots will be added soon.',
     links: 'Links',
     statusLabel: 'Status',
+    next: 'Next project',
     notFoundTitle: 'Project not found',
     notFoundText: "That project doesn't exist (or was moved).",
   },

@@ -1,9 +1,11 @@
+import { useContent } from '@/context/LocaleContext'
 import { Icon } from '@/components/ui/Icon'
 import { Tag } from '@/components/ui/Tag'
 import styles from './ExperienceCard.module.css'
 
 /** One job. Columns split the work into technical / operational / support so both sides show. */
 export function ExperienceCard({ job }) {
+  const { ui } = useContent()
   return (
     <article className={styles.card}>
       <header className={styles.head}>
@@ -36,7 +38,7 @@ export function ExperienceCard({ job }) {
         ))}
       </div>
 
-      <ul className={styles.skills} aria-label="Skills used in this role">
+      <ul className={styles.skills} aria-label={ui.common.ariaSkillsUsed}>
         {job.skills.map((skill) => (
           <li key={skill}>
             <Tag>{skill}</Tag>

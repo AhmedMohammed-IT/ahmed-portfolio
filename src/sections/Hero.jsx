@@ -1,4 +1,4 @@
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Download } from 'lucide-react'
 import { useContent } from '@/context/LocaleContext'
 import { Button } from '@/components/ui/Button'
 import { Icon } from '@/components/ui/Icon'
@@ -7,9 +7,11 @@ import { TerminalCard } from '@/components/cards/TerminalCard'
 import styles from './Hero.module.css'
 
 export function Hero() {
-  const { profile, socialLinks, ui, projects } = useContent()
+  const { profile, socialLinks, ui, projects, dir } = useContent()
   // With no published projects, the main call to action points to the About section instead.
   const hasProjects = projects.length > 0
+  // A "forward" arrow points left in RTL, since that's the reading-forward direction there.
+  const ForwardIcon = dir === 'rtl' ? ArrowLeft : ArrowRight
 
   // Each piece rises in one after the other; --d sets its delay.
   const rise = (delay) => ({ className: styles.rise, style: { '--d': `${delay}ms` } })
@@ -41,7 +43,7 @@ export function Hero() {
           <div {...rise(420)} className={`${styles.rise} ${styles.actions}`}>
             <Button
               href={hasProjects ? '#projects' : '#about'}
-              icon={<ArrowRight size={18} aria-hidden="true" />}
+              icon={<ForwardIcon size={18} aria-hidden="true" />}
               iconPosition="end"
             >
               {hasProjects ? ui.common.viewWork : ui.common.aboutMe}

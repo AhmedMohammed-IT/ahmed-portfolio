@@ -25,7 +25,8 @@
     <meta property="og:image" content="https://ahmed-portfolio-gules-three.vercel.app/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Apply the saved theme before first paint to avoid a flash. Dark is the default. -->
+    <!-- Apply the saved theme and language before first paint, so there's no flash of the
+         wrong colours or the wrong text direction. English/dark are the defaults. -->
     <script>
       (function () {
         try {
@@ -34,6 +35,12 @@
         } catch (e) {
           document.documentElement.dataset.theme = 'dark';
         }
+        try {
+          if (localStorage.getItem('locale') === 'ar') {
+            document.documentElement.lang = 'ar';
+            document.documentElement.dir = 'rtl';
+          }
+        } catch (e) {}
       })();
     </script>
   </head>
@@ -41,7 +48,7 @@
     <div id="root"></div>
     <noscript>
       <p style="font-family: system-ui, sans-serif; padding: 2rem; max-width: 40rem; margin: 0 auto">
-        This portfolio needs JavaScript to run. You can reach Ahmed AL-Talool at ahmed784675175@gmail.com.
+        This portfolio needs JavaScript to run. You can reach Ahmed AL-Talool at Ahmed.M.Saif.IT@gmail.com.
       </p>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>

@@ -20,9 +20,12 @@ function Block({ title, children }) {
 
 export default function ProjectDetail() {
   const { slug } = useParams()
-  const { projects, profile, ui } = useContent()
+  const { projects, profile, ui, dir } = useContent()
   const copy = ui.projectDetail
   const listCopy = ui.sections.projects
+  // "Back" points right and "forward/next" points left in RTL.
+  const BackIcon = dir === 'rtl' ? ArrowRight : ArrowLeft
+  const NextIcon = dir === 'rtl' ? ArrowLeft : ArrowRight
 
   const index = projects.findIndex((item) => item.slug === slug)
   const project = projects[index]
@@ -37,7 +40,7 @@ export default function ProjectDetail() {
     <article className={styles.page}>
       <div className="container">
         <Link to={{ pathname: '/', hash: '#projects' }} className={styles.back}>
-          <ArrowLeft size={16} aria-hidden="true" />
+          <BackIcon size={16} aria-hidden="true" />
           {copy.back}
         </Link>
 
@@ -116,7 +119,7 @@ export default function ProjectDetail() {
             </Block>
           </div>
 
-          <aside className={styles.side} aria-label="Project facts">
+          <aside className={styles.side} aria-label={ui.common.ariaProjectFacts}>
             <div className={styles.card}>
               <h2 className={styles.cardTitle}>{copy.statusLabel}</h2>
               <p className={styles.cardValue}>{project.status}</p>
@@ -137,10 +140,10 @@ export default function ProjectDetail() {
         {projects.length > 1 && (
           <Link to={`/projects/${next.slug}`} className={styles.next}>
             <span>
-              <span className={styles.nextLabel}>Next project</span>
+              <span className={styles.nextLabel}>{copy.next}</span>
               <span className={styles.nextName}>{next.name}</span>
             </span>
-            <ArrowRight size={22} aria-hidden="true" />
+            <NextIcon size={22} aria-hidden="true" />
           </Link>
         )}
       </div>
