@@ -116,9 +116,6 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <div className={styles.mobileActions}>
-            <LanguageToggle />
-          </div>
           <Button
             href={profile.cvUrl}
             download={profile.cvDownloadName}

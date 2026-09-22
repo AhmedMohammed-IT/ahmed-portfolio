@@ -1,11 +1,15 @@
+/* Icon-only circle on mobile (matches ThemeToggle exactly, so the two sit together neatly);
+   expands into a labelled pill once the navbar has room, at the desktop breakpoint. */
 .toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
+  width: 40px;
   height: 40px;
-  padding-inline: 14px;
+  padding: 0;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 50%;
   background: var(--surface);
   color: var(--text-muted);
   font-size: 0.85rem;
@@ -20,4 +24,20 @@
   color: var(--accent);
   border-color: var(--accent-line);
   background: var(--accent-soft);
+}
+
+.label {
+  display: none;
+}
+
+@media (min-width: 961px) {
+  .toggle {
+    width: auto;
+    padding-inline: 14px;
+    border-radius: 999px;
+  }
+
+  .label {
+    display: inline;
+  }
 }

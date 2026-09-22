@@ -33,6 +33,10 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  /* Lets the flex row actually shrink this below its text's natural width instead of
+     overflowing the viewport — the three icon buttons in .actions can't get any smaller,
+     so the brand text is what yields space on very narrow screens. */
+  min-width: 0;
 }
 
 .mark {
@@ -50,19 +54,26 @@
 .brandText {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   line-height: 1.15;
 }
 
 .brandName {
+  overflow: hidden;
   font-weight: 700;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .brandField {
+  overflow: hidden;
   color: var(--text-faint);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-transform: uppercase;
 }
 
@@ -146,11 +157,6 @@
   color: var(--text);
   font-size: 1.05rem;
   font-weight: 500;
-}
-
-.mobileActions {
-  display: flex;
-  margin-block-start: 12px;
 }
 
 .mobileCv {

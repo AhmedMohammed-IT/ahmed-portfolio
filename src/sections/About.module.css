@@ -108,7 +108,17 @@
     gap: 64px;
   }
 
+  /* Bento-style asymmetry, still perfectly gapless: a tall hero tile (Technical Support —
+     my daily work) beside the other three stacked, instead of four identical boxes. */
   .cards {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cards > li:first-child {
+    grid-row: span 3;
+  }
+
+  .cards > li:first-child :global(article) {
+    justify-content: center;
   }
 }

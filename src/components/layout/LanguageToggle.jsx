@@ -15,7 +15,7 @@ export function LanguageToggle() {
       title={ui.common.switchLanguage}
     >
       <Languages size={16} aria-hidden="true" />
-      <span>{ui.common.languageLabel}</span>
+      <span className={styles.label}>{ui.common.languageLabel}</span>
     </button>
   )
 }
