@@ -1,0 +1,111 @@
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 22px;
+}
+
+/* The vertical rail that connects the markers. */
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset-block: 20px;
+  inset-inline-start: 19px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-line), var(--border) 85%, transparent);
+}
+
+.item {
+  position: relative;
+  padding-inline-start: 62px;
+}
+
+.marker {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 8px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent-line);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.done .marker {
+  background: var(--accent-soft);
+}
+
+.current .marker {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+  animation: ring 2.6s ease-out infinite;
+}
+
+.ongoing .marker {
+  border-style: dashed;
+  border-color: var(--accent);
+}
+
+.content {
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition:
+    border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+/* For children that already are a card (e.g. ExperienceCard): no second frame. */
+.bare {
+  min-width: 0;
+}
+
+.item:hover .content {
+  border-color: var(--accent-line);
+  box-shadow: var(--shadow);
+}
+
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-line);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+}
+
+/* Small phones: slimmer rail so cards keep more room for text. */
+@media (max-width: 520px) {
+  .timeline::before {
+    inset-inline-start: 15px;
+  }
+
+  .item {
+    padding-inline-start: 46px;
+  }
+
+  .marker {
+    width: 32px;
+    height: 32px;
+    font-size: 0.68rem;
+  }
+
+  .content {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .current .marker {
+    animation: none;
+  }
+}

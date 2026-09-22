@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ahmed AL-Talool | Information Technology &amp; Web Development Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Ahmed AL-Talool — Information Technology graduate and IT Support Specialist in Sakaka, Saudi Arabia, working across technical support, data and web development."
+    />
+    <meta name="author" content="Ahmed AL-Talool" />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / social previews.
+         TODO after deploying: set an absolute og:image URL (https://YOUR-DOMAIN/og-image.png) and add og:url. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ahmed AL-Talool" />
+    <meta property="og:title" content="Ahmed AL-Talool | Information Technology &amp; Web Development" />
+    <meta
+      property="og:description"
+      content="From technology to solutions — IT support, data and web development, built step by step."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Apply the saved theme before first paint to avoid a flash. Dark is the default. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme');
+          document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="font-family: system-ui, sans-serif; padding: 2rem; max-width: 40rem; margin: 0 auto">
+        This portfolio needs JavaScript to run. You can reach Ahmed AL-Talool at ahmed784675175@gmail.com.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

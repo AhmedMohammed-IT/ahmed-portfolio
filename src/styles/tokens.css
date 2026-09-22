@@ -1,0 +1,60 @@
+/* Design tokens — the single place to tune colours, type, spacing and motion. */
+:root {
+  --font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', 'Noto Sans Arabic', Tahoma, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, 'Liberation Mono', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+
+  --container: 1120px;
+  --gutter: clamp(20px, 5vw, 40px);
+  --nav-h: 68px;
+  --section-space: clamp(72px, 10vw, 120px);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Dark is the primary theme: deep navy + one calm blue accent. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --bg-soft: #0e1729;
+  --surface: #121c31;
+  --surface-2: #182640;
+  --border: rgba(148, 163, 184, 0.16);
+  --border-strong: rgba(148, 163, 184, 0.32);
+  --text: #e8edf7;
+  --text-muted: #9fb0c8;
+  --text-faint: #7c8ca6;
+  --accent: #7db4ff;
+  --accent-soft: rgba(125, 180, 255, 0.12);
+  --accent-line: rgba(125, 180, 255, 0.4);
+  --on-accent: #06101f;
+  --grid-line: rgba(148, 163, 184, 0.07);
+  --glow: rgba(59, 130, 246, 0.16);
+  --shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  --terminal-bg: #0a1424;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f6f8fc;
+  --bg-soft: #edf2f9;
+  --surface: #ffffff;
+  --surface-2: #f1f5fb;
+  --border: rgba(15, 23, 42, 0.11);
+  --border-strong: rgba(15, 23, 42, 0.24);
+  --text: #0f172a;
+  --text-muted: #475569;
+  --text-faint: #64748b;
+  --accent: #1d4ed8;
+  --accent-soft: rgba(29, 78, 216, 0.08);
+  --accent-line: rgba(29, 78, 216, 0.35);
+  --on-accent: #ffffff;
+  --grid-line: rgba(15, 23, 42, 0.06);
+  --glow: rgba(59, 130, 246, 0.14);
+  --shadow: 0 24px 50px -30px rgba(15, 23, 42, 0.28);
+  --terminal-bg: #0f1a2e;
+}
