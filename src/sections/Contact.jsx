@@ -51,6 +51,7 @@ export function Contact({ index }) {
       const response = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        signal: AbortSignal.timeout(10000),
         body: JSON.stringify({
           name: values.name.trim(),
           email: values.email.trim(),
