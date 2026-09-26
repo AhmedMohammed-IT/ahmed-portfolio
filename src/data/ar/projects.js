@@ -42,7 +42,7 @@ export const projects = [
       github: 'https://github.com/AhmedMohammed-IT/ahmed-portfolio',
       live: 'https://ahmed-portfolio-gules-three.vercel.app',
     },
-    screenshots: [],
+    screenshots: [{ src: '/projects/ahmed-portfolio/home.png', alt: 'الصفحة الرئيسية للموقع في الوضع الداكن' }],
     cover: { icon: 'code', from: '#1d4ed8', to: '#0ea5a3' },
   },
 ]

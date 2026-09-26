@@ -54,7 +54,7 @@ export const projects = [
       github: 'https://github.com/AhmedMohammed-IT/ahmed-portfolio',
       live: 'https://ahmed-portfolio-gules-three.vercel.app',
     },
-    screenshots: [],
+    screenshots: [{ src: '/projects/ahmed-portfolio/home.png', alt: 'Home page of the portfolio in dark mode' }],
     cover: { icon: 'code', from: '#1d4ed8', to: '#0ea5a3' },
   },
 ]
