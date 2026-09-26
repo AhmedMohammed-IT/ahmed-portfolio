@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import '@fontsource-variable/inter'
 import '@fontsource/tajawal/400.css'
 import '@fontsource/tajawal/500.css'
@@ -19,6 +20,8 @@ createRoot(document.getElementById('root')).render(
         <BrowserRouter>
           <App />
         </BrowserRouter>
+        {/* Privacy-friendly visitor stats (no cookies); only reports on the deployed site. */}
+        <Analytics />
       </LocaleProvider>
     </ThemeProvider>
   </StrictMode>,
