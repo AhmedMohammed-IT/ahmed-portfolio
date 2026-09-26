@@ -14,7 +14,50 @@
  * To add a brand-new project: copy an object, change `slug` (used in the URL /projects/<slug>)
  * and fill the fields. Empty arrays and null links are handled gracefully by the UI.
  */
-export const projects = []
+export const projects = [
+  {
+    slug: 'ahmed-portfolio',
+    name: 'Ahmed AL-Talool Portfolio',
+    type: 'Bilingual portfolio website',
+    status: 'Live',
+    tagline: 'A fast, bilingual (English / Arabic) portfolio with full right-to-left support.',
+    summary:
+      'The website you are on: a React portfolio with dark and light themes, an English/Arabic switch with true RTL layout, and all content kept as data separate from the components.',
+    overview: [
+      'This portfolio presents my background, skills and experience in one place, in English and Arabic. It is built with React and Vite, with no UI framework and no heavy animation library, so it stays fast on phones.',
+      'It is deployed on Vercel and connected to GitHub, so every push to the main branch publishes automatically.',
+    ],
+    problem:
+      'I needed one professional place that brings my CV, skills and experience together, reads well on a phone, and works properly in Arabic, not just translated text on an English layout.',
+    solution:
+      'A single-page React site with content stored as plain data in two language folders, logical CSS properties so the layout flips to RTL automatically, and a theme and language choice that is remembered and applied before first paint.',
+    features: [
+      'English and Arabic with full right-to-left layout',
+      'Dark and light themes, remembered between visits',
+      'All text stored as data, editable without touching components',
+      'Sections for experience, skills, education and a learning journey',
+      "Downloadable CV and a contact form that opens the visitor's email app",
+      'Automatic deploys from GitHub to Vercel with security headers',
+    ],
+    technologies: ['React', 'Vite', 'React Router', 'JavaScript', 'CSS Modules', 'Vercel', 'GitHub'],
+    challenges: [
+      'Making the layout flip correctly from left-to-right to right-to-left, including icons and spacing.',
+      'Preventing horizontal overflow on small phone screens in Arabic.',
+      'Applying the saved theme and language before the page paints, so there is no flash of the wrong one.',
+    ],
+    learned: [
+      'Treating content as data keeps two languages in sync far more easily than editing components.',
+      'Right-to-left support is a layout decision made from the start, not a translation added at the end.',
+      'Connecting GitHub to Vercel makes shipping a small change a one-step process.',
+    ],
+    links: {
+      github: 'https://github.com/AhmedMohammed-IT/ahmed-portfolio',
+      live: 'https://ahmed-portfolio-gules-three.vercel.app',
+    },
+    screenshots: [],
+    cover: { icon: 'code', from: '#1d4ed8', to: '#0ea5a3' },
+  },
+]
 
 export const projectDrafts = [
   {
