@@ -133,19 +133,21 @@ export const ui = {
     copyFailed: 'Copy failed — select the address manually.',
     form: {
       title: 'Send a message',
-      note: 'This form opens your email app with the message ready to send — nothing is stored on this site.',
+      note: 'Your message is sent straight to my inbox through FormSubmit — nothing is stored on this site.',
       name: 'Your name',
       email: 'Your email',
       subject: 'Subject',
       message: 'Message',
-      send: 'Open in email app',
+      send: 'Send message',
+      sending: 'Sending…',
       errors: {
         name: 'Please enter your name.',
         email: 'Please enter a valid email address.',
         message: 'Please write a short message.',
       },
-      success:
-        'Your email app should now be open with the message ready. If nothing happened, copy my address and write to me directly.',
+      success: 'Thank you — your message was sent. I will reply to the email you gave.',
+      failed:
+        'Sending failed, so your email app should now open with the message ready. If nothing happened, copy my address and write to me directly.',
     },
   },
 

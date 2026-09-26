@@ -19,12 +19,13 @@ export function Contact({ index }) {
 
   const [values, setValues] = useState(INITIAL)
   const [errors, setErrors] = useState({})
-  const [sent, setSent] = useState(false)
+  // 'idle' | 'sending' | 'sent' | 'failed'
+  const [status, setStatus] = useState('idle')
 
   const update = (field) => (event) => {
     setValues((current) => ({ ...current, [field]: event.target.value }))
     if (errors[field]) setErrors((current) => ({ ...current, [field]: undefined }))
-    if (sent) setSent(false)
+    if (status === 'sent' || status === 'failed') setStatus('idle')
   }
 
   function validate() {
@@ -35,17 +36,40 @@ export function Contact({ index }) {
     return next
   }
 
-  // There is no backend, so the form builds a mailto: link. Nothing is stored or sent by this site.
-  function handleSubmit(event) {
+  // No backend of our own: the message is forwarded to my inbox by FormSubmit (formsubmit.co).
+  // Nothing is stored on this site. If the request fails, fall back to the visitor's email app.
+  async function handleSubmit(event) {
     event.preventDefault()
+    if (status === 'sending') return
     const found = validate()
     setErrors(found)
     if (Object.keys(found).length > 0) return
 
     const subject = values.subject.trim() || `Portfolio message from ${values.name.trim()}`
-    const body = `${values.message.trim()}\n\n— ${values.name.trim()}\n${values.email.trim()}`
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    setSent(true)
+    setStatus('sending')
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: values.name.trim(),
+          email: values.email.trim(),
+          message: values.message.trim(),
+          _subject: subject,
+          _replyto: values.email.trim(),
+          _template: 'table',
+          _honey: '',
+        }),
+      })
+      const result = await response.json()
+      if (!response.ok || String(result.success) !== 'true') throw new Error('send failed')
+      setValues(INITIAL)
+      setStatus('sent')
+    } catch {
+      const body = `${values.message.trim()}\n\n— ${values.name.trim()}\n${values.email.trim()}`
+      window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+      setStatus('failed')
+    }
   }
 
   const fieldProps = (field) => ({
@@ -170,12 +194,17 @@ export function Contact({ index }) {
                 {renderError('message')}
               </div>
 
-              <Button type="submit" icon={<Send size={16} aria-hidden="true" />} iconPosition="end">
-                {text.form.send}
+              <Button
+                type="submit"
+                disabled={status === 'sending'}
+                icon={<Send size={16} aria-hidden="true" />}
+                iconPosition="end"
+              >
+                {status === 'sending' ? text.form.sending : text.form.send}
               </Button>
 
               <p className={styles.status} role="status" aria-live="polite">
-                {sent ? text.form.success : ''}
+                {status === 'sent' ? text.form.success : status === 'failed' ? text.form.failed : ''}
               </p>
             </form>
           </Reveal>
