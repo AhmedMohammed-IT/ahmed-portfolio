@@ -9,14 +9,14 @@ import { Education } from '@/sections/Education'
 import { Contact } from '@/sections/Contact'
 
 export default function Home() {
-  const { projects } = useContent()
+  const { projects, experience } = useContent()
 
   // Sections without content are skipped, and the visible ones are numbered 01, 02, 03…
   const sections = [
     { id: 'about', Component: About },
     { id: 'skills', Component: Skills },
     { id: 'journey', Component: Journey },
-    { id: 'experience', Component: Experience },
+    { id: 'experience', Component: Experience, hidden: experience.length === 0 },
     { id: 'projects', Component: Projects, hidden: projects.length === 0 },
     { id: 'education', Component: Education },
     { id: 'contact', Component: Contact },

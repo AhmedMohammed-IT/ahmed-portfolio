@@ -61,64 +61,6 @@ export const projects = [
 
 export const projectDrafts = [
   {
-    slug: 'sama-captain-hub',
-    name: 'SAMA Captain Hub',
-    type: 'Full-stack web application',
-    status: 'Working version',
-    tagline: 'An Arabic, mobile-friendly knowledge and training hub for delivery captains.',
-    summary:
-      'A full-stack platform that gives delivery captains quick, reliable answers — step-by-step scenarios, an academy with lessons and quizzes, policy awareness and emergency contacts — with a staff-only CMS behind it.',
-    overview: [
-      'SAMA Captain Hub is a fully Arabic (RTL) platform with two separate sides. The public site needs no login: any captain can browse content, search, and send a support request with just a name and phone number. The admin side is for staff only and manages every piece of content, support requests and users.',
-      'A core rule of the project: fines, emergency numbers and procedural periods are never hard-coded. They live in the database and are edited from the admin panel, so the content stays accurate without touching code.',
-    ],
-    problem:
-      'During a shift, a captain needs an answer quickly — what to do when a customer does not respond, how a policy applies, who to call in an emergency. When that information is scattered, it slows people down and creates avoidable support requests.',
-    solution:
-      'One place with practical, searchable content: "What should I do now?" scenarios, a learning academy, a violations awareness center, FAQs and emergency contacts — all managed by staff through a role-based CMS, and all readable without creating an account.',
-    features: [
-      '"What should I do now?" step-by-step scenarios for common situations',
-      'Academy with levels, lessons and short quizzes',
-      'Violations & policy awareness center',
-      'FAQ with helpful / not-helpful feedback',
-      'Emergency contacts page managed from the database',
-      'Search across content, with popular searches',
-      'Guest support form — no account needed',
-      'Staff CMS: articles, videos, FAQs, scenarios, safety tips, violations, academy, quizzes, emergency contacts',
-      'Support ticket workflow and staff account management',
-      'Admin dashboard with usage insights (searches, top videos, ticket status)',
-      'Switchable colour themes on the public site',
-    ],
-    technologies: [
-      'React',
-      'TypeScript',
-      'Vite',
-      'Tailwind CSS',
-      'Node.js',
-      'Express',
-      'MySQL',
-      'Knex',
-      'JWT',
-      'Zod',
-      'Vitest',
-    ],
-    challenges: [
-      'Role-based access (admin, content manager, support agent) enforced on both the API and the interface.',
-      'Keeping policy figures and contact numbers data-driven instead of hard-coded.',
-      'Arabic RTL layout and typography, with a distinct visual identity for the public site and the admin panel.',
-      'Secure sessions with short-lived access tokens and silent refresh.',
-    ],
-    learned: [
-      'Designing an API and a UI around roles from the start, instead of adding permissions at the end.',
-      'Treating content as data: a small schema and a CMS beat editing code every time something changes.',
-      'Building for right-to-left languages is a layout decision, not just a translation.',
-      'Small automated tests around authentication catch mistakes that manual clicking misses.',
-    ],
-    links: { github: null, live: null },
-    screenshots: [],
-    cover: { icon: 'compass', from: '#1d4ed8', to: '#0ea5a3' },
-  },
-  {
     slug: 'coffee-shop-management',
     name: 'Coffee Shop Management System',
     type: 'Management & accounting system',

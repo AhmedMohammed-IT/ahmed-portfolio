@@ -127,7 +127,7 @@ export const ui = {
     phoneLabel: 'Phone',
     locationLabel: 'Location',
     cvTitle: 'Prefer a quick overview?',
-    cvText: 'My CV summarises my experience, education and skills on a single page.',
+    cvText: 'My CV summarises my skills, projects and education on a single page.',
     copy: 'Copy email',
     copied: 'Copied!',
     copyFailed: 'Copy failed — select the address manually.',

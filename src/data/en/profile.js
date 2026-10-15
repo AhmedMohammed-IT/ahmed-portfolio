@@ -6,7 +6,7 @@ export const profile = {
   name: 'Ahmed AL-Talool',
   shortName: 'Ahmed',
   field: 'Information Technology',
-  role: 'IT Support Specialist',
+  role: 'IT Support & Application Support',
   tagline:
     'Exploring technology, building practical solutions, and continuously learning through code.',
   location: 'Sakaka, Saudi Arabia',
@@ -24,7 +24,7 @@ export const profile = {
   // Short facts shown under the hero text so a visitor understands the profile in seconds.
   heroFacts: [
     { icon: 'graduation', text: "Bachelor's in Information Technology" },
-    { icon: 'briefcase', text: 'IT Support Specialist · SamaTaxi' },
+    { icon: 'briefcase', text: 'IT Support & Application Support' },
     { icon: 'pin', text: 'Sakaka, Saudi Arabia' },
   ],
 
@@ -39,11 +39,10 @@ export const profile = {
 
 /**
  * Social / contact links.
- * TODO(Ahmed): replace YOUR_LINKEDIN_URL below. While a value still contains "YOUR_",
- * the link is hidden on the live site (and shown as a dashed placeholder in dev mode).
+ * A value that still contains "YOUR_" is hidden on the live site (placeholder in dev mode).
  */
 export const socialLinks = [
   { id: 'github', label: 'GitHub', url: 'https://github.com/AhmedMohammed-IT' },
-  { id: 'linkedin', label: 'LinkedIn', url: 'YOUR_LINKEDIN_URL' },
+  { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahmed-al-talool' },
   { id: 'email', label: 'Email', url: `mailto:${profile.email}` },
 ]

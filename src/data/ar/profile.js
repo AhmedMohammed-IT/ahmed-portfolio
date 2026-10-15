@@ -6,7 +6,7 @@ export const profile = {
   name: 'أحمد الطلول',
   shortName: 'أحمد',
   field: 'تقنية المعلومات',
-  role: 'أخصائي دعم تقني',
+  role: 'الدعم التقني ودعم التطبيقات',
   tagline: 'أستكشف التقنية، وأبني حلولًا عملية، وأتعلّم باستمرار من خلال الكود.',
   location: 'سكاكا، السعودية',
 
@@ -21,7 +21,7 @@ export const profile = {
 
   heroFacts: [
     { icon: 'graduation', text: 'بكالوريوس في تقنية المعلومات' },
-    { icon: 'briefcase', text: 'أخصائي دعم تقني · سما تاكسي' },
+    { icon: 'briefcase', text: 'الدعم التقني ودعم التطبيقات' },
     { icon: 'pin', text: 'سكاكا، السعودية' },
   ],
 
@@ -35,6 +35,6 @@ export const profile = {
 
 export const socialLinks = [
   { id: 'github', label: 'GitHub', url: 'https://github.com/AhmedMohammed-IT' },
-  { id: 'linkedin', label: 'LinkedIn', url: 'YOUR_LINKEDIN_URL' },
+  { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahmed-al-talool' },
   { id: 'email', label: 'البريد الإلكتروني', url: `mailto:${profile.email}` },
 ]

@@ -20,8 +20,10 @@ import { projects as projectsAr } from './ar/projects'
 
 // Tech-stack tiles are brand/product names (React, Git…), so they stay identical in every language.
 function buildLocale({ locale, dir, profile, socialLinks, ui, about, skillGroups, journey, pillars, experience, education, projects }) {
-  // Sections with no content are hidden: no projects → no "Projects" menu item.
-  const visibleNav = ui.nav.filter((item) => item.id !== 'projects' || projects.length > 0)
+  // Sections with no content are hidden: no projects → no "Projects" menu item (same for experience).
+  const visibleNav = ui.nav.filter(
+    (item) => (item.id !== 'projects' || projects.length > 0) && (item.id !== 'experience' || experience.length > 0),
+  )
   return {
     locale,
     dir,
