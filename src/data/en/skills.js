@@ -37,12 +37,12 @@ export const skillGroups = [
     title: 'Web Development',
     blurb: 'The stack behind my personal full-stack projects.',
     items: [
-      { name: 'HTML & CSS', level: 'working' },
-      { name: 'JavaScript', level: 'working' },
-      { name: 'React', level: 'building' },
-      { name: 'Node.js & Express', level: 'building' },
-      { name: 'Tailwind CSS', level: 'building' },
-      { name: 'Bootstrap', level: 'working' },
+      { name: 'HTML & CSS' },
+      { name: 'JavaScript' },
+      { name: 'React' },
+      { name: 'Node.js & Express' },
+      { name: 'Tailwind CSS' },
+      { name: 'Bootstrap' },
     ],
   },
   {
