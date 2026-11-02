@@ -55,7 +55,7 @@ export function Navbar() {
           </span>
           <span className={styles.brandText}>
             <span className={styles.brandName}>{profile.shortName}</span>
-            <span className={styles.brandField}>{profile.field}</span>
+            <span className={styles.brandField}>{profile.role}</span>
           </span>
         </Link>
 

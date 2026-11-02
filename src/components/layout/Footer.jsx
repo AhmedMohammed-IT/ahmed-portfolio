@@ -11,7 +11,6 @@ export function Footer() {
       <div className={`container ${styles.inner}`}>
         <div className={styles.identity}>
           <p className={styles.name}>{profile.shortName}</p>
-          <p className={styles.field}>{profile.field}</p>
           <p className={styles.line}>{ui.footer.line}</p>
         </div>
         <ul className={styles.social}>
