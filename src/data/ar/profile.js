@@ -7,7 +7,9 @@ export const profile = {
   shortName: 'أحمد',
   field: 'تقنية المعلومات',
   role: 'الدعم التقني ودعم التطبيقات',
-  tagline: 'أستكشف التقنية، وأبني حلولًا عملية، وأتعلّم باستمرار من خلال الكود.',
+  availability: 'متاح لوظائف الدعم التقني ودعم التطبيقات',
+  tagline:
+    'أحل مشاكل التطبيقات والحسابات وWindows للعملاء والشركاء والموظفين، وأبني مشاريع ويب متكاملة لأفهم الأنظمة التي أدعمها.',
   location: 'سكاكا، السعودية',
 
   email: 'Ahmed.M.Saif.IT@gmail.com',
@@ -20,16 +22,15 @@ export const profile = {
   cvDownloadName: 'Ahmed-AL-Talool-CV.pdf',
 
   heroFacts: [
-    { icon: 'graduation', text: 'بكالوريوس في تقنية المعلومات' },
-    { icon: 'briefcase', text: 'الدعم التقني ودعم التطبيقات' },
     { icon: 'pin', text: 'سكاكا، السعودية' },
+    { icon: 'briefcase', text: 'حضوري أو عن بُعد، في أي مدينة بالسعودية' },
   ],
 
   terminal: [
-    { command: 'whoami', output: 'أحمد الطلول' },
-    { command: 'field', output: 'تقنية المعلومات' },
-    { command: 'focus', output: 'دعم تقني · بيانات · تطوير الويب' },
-    { command: 'status', output: 'دائم التعلّم' },
+    { command: 'cases --daily', output: '~100 حالة للعملاء والشركاء' },
+    { command: 'accounts --verified', output: '+6,000 حساب مستخدم وشريك' },
+    { command: 'it-support --users', output: '~15 موظفًا أدعمهم تقنيًا' },
+    { command: 'build --current', output: 'نظام طلبات لمطعم متعدد الفروع' },
   ],
 }
 
