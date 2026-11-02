@@ -14,7 +14,7 @@ export function Experience({ index }) {
         <SectionTitle id="experience-title" index={index} {...copy} />
         <Timeline label={copy.title}>
           {experience.map((job) => (
-            <TimelineItem key={job.id} marker={job.start.slice(-4)} state={job.end === 'Present' ? 'current' : 'done'} bare>
+            <TimelineItem key={job.id} marker={job.start.slice(-4)} state={job.current ? 'current' : 'done'} bare>
               <Reveal>
                 <ExperienceCard job={job} />
               </Reveal>

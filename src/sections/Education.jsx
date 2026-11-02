@@ -2,7 +2,6 @@ import { Award, GraduationCap } from 'lucide-react'
 import { useContent } from '@/context/LocaleContext'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Reveal } from '@/components/ui/Reveal'
-import { Tag } from '@/components/ui/Tag'
 import styles from './Education.module.css'
 
 export function Education({ index }) {
@@ -31,18 +30,6 @@ export function Education({ index }) {
               </Reveal>
             ))}
 
-            <Reveal delay={100}>
-              <div className={styles.areas}>
-                <h3 className={styles.subtitle}>{copy.areasTitle}</h3>
-                <ul className={styles.chips}>
-                  {education.areas.map((area) => (
-                    <li key={area}>
-                      <Tag tone="accent">{area}</Tag>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
           </div>
 
           {hasCertificates && (

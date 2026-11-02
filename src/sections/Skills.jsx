@@ -2,7 +2,6 @@ import { useContent } from '@/context/LocaleContext'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Reveal } from '@/components/ui/Reveal'
 import { SkillCard } from '@/components/cards/SkillCard'
-import { TechStack } from './TechStack'
 import styles from './Skills.module.css'
 
 export function Skills({ index }) {
@@ -34,8 +33,6 @@ export function Skills({ index }) {
             </Reveal>
           ))}
         </div>
-
-        <TechStack />
       </div>
     </section>
   )

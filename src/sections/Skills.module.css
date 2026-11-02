@@ -57,7 +57,7 @@
 
 .grid {
   display: grid;
-  gap: 18px;
+  gap: var(--card-gap);
 }
 
 @media (min-width: 800px) {

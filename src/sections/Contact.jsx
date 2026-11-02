@@ -1,11 +1,11 @@
 import { useId, useState } from 'react'
-import { Download, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { Download, Mail, Phone, Send } from 'lucide-react'
 import { useContent } from '@/context/LocaleContext'
 import { SectionTitle } from '@/components/ui/SectionTitle'
 import { Reveal } from '@/components/ui/Reveal'
 import { Button } from '@/components/ui/Button'
 import { CopyButton } from '@/components/ui/CopyButton'
-import { SocialLink } from '@/components/ui/SocialLink'
+import { BrandIcon } from '@/components/ui/BrandIcon'
 import styles from './Contact.module.css'
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -16,6 +16,7 @@ export function Contact({ index }) {
   const copy = ui.sections.contact
   const text = ui.contact
   const formId = useId()
+  const linkedin = socialLinks.find((link) => link.id === 'linkedin')
 
   const [values, setValues] = useState(INITIAL)
   const [errors, setErrors] = useState({})
@@ -89,15 +90,19 @@ export function Contact({ index }) {
                 />
               </li>
 
-              <li className={styles.method}>
-                <span className={styles.methodIcon}>
-                  <MapPin size={20} aria-hidden="true" />
-                </span>
-                <div className={styles.methodText}>
-                  <span className={styles.label}>{text.locationLabel}</span>
-                  <span className={styles.value}>{profile.location}</span>
-                </div>
-              </li>
+              {linkedin && (
+                <li className={styles.method}>
+                  <span className={styles.methodIcon}>
+                    <BrandIcon name="linkedin" size={20} />
+                  </span>
+                  <div className={styles.methodText}>
+                    <span className={styles.label}>{linkedin.label}</span>
+                    <a href={linkedin.url} className={styles.value} target="_blank" rel="noreferrer">
+                      {linkedin.url.replace(/^https:\/\/(www\.)?/, '')}
+                    </a>
+                  </div>
+                </li>
+              )}
 
               {profile.showPhone && (
                 <li className={styles.method}>
@@ -128,15 +133,6 @@ export function Contact({ index }) {
               </Button>
             </div>
 
-            <ul className={styles.social}>
-              {socialLinks
-                .filter((link) => link.id !== 'email')
-                .map((link) => (
-                  <li key={link.id}>
-                    <SocialLink link={link} />
-                  </li>
-                ))}
-            </ul>
           </Reveal>
 
           <Reveal delay={120}>

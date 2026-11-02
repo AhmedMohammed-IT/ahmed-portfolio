@@ -1,6 +1,6 @@
 .layout {
   display: grid;
-  gap: 28px;
+  gap: var(--card-gap);
   align-items: start;
 }
 
@@ -30,7 +30,7 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   background: var(--accent-soft);
   color: var(--accent);
 }
@@ -62,7 +62,7 @@ a.value:hover {
   display: grid;
   justify-items: start;
   gap: 10px;
-  padding: 22px 24px;
+  padding: var(--card-pad);
   border: 1px dashed var(--border-strong);
   border-radius: var(--radius-lg);
 }
@@ -77,19 +77,10 @@ a.value:hover {
   font-size: 0.93rem;
 }
 
-.social {
-  display: flex;
-  gap: 10px;
-}
-
-.social:empty {
-  display: none;
-}
-
 .form {
   display: grid;
   gap: 18px;
-  padding: clamp(22px, 4vw, 34px);
+  padding: var(--card-pad);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   background: var(--surface);

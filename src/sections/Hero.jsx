@@ -23,7 +23,7 @@ export function Hero() {
           <p {...rise(0)}>
             <span className={styles.kicker}>
               <span className={styles.dot} aria-hidden="true" />
-              {profile.field}
+              {profile.availability}
             </span>
           </p>
 
@@ -32,7 +32,7 @@ export function Hero() {
               {profile.name}
             </span>
             <span {...rise(180)} className={`${styles.rise} ${styles.field}`}>
-              {profile.field}
+              {profile.role}
             </span>
           </h1>
 
@@ -80,7 +80,7 @@ export function Hero() {
 
         <div {...rise(360)} className={`${styles.rise} ${styles.visual}`}>
           <TerminalCard
-            title={`${profile.shortName.toLowerCase()}@portfolio — profile`}
+            title={`${profile.shortName.toLowerCase()}@support — highlights`}
             lines={profile.terminal}
             label={`Profile summary: ${profile.terminal.map((l) => `${l.command}: ${l.output}`).join('; ')}`}
           />

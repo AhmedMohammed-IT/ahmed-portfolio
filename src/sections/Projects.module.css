@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  gap: 22px;
+  gap: var(--card-gap);
 }
 
 .grid > li {
@@ -18,7 +18,7 @@
   justify-content: center;
   gap: 14px;
   min-height: 160px;
-  padding: 32px;
+  padding: var(--card-pad);
   border: 1px dashed var(--border-strong);
   border-radius: var(--radius-xl);
   color: var(--text-muted);
