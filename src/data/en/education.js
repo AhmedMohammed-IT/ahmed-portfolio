@@ -17,14 +17,4 @@ export const education = {
     { title: 'Computer Driving License', issuer: "Sana'a University", date: 'Jul 2024' },
     { title: 'Cyber Security', issuer: "Sana'a University", date: 'Sep 2024' },
   ],
-
-  areas: [
-    'Programming',
-    'Web Development',
-    'Computer Fundamentals',
-    'Systems',
-    'Databases',
-    'Networking Fundamentals',
-    'Software',
-  ],
 }

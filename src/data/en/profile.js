@@ -7,8 +7,9 @@ export const profile = {
   shortName: 'Ahmed',
   field: 'Information Technology',
   role: 'IT Support & Application Support',
+  availability: 'Open to IT Support & Application Support roles',
   tagline:
-    'Exploring technology, building practical solutions, and continuously learning through code.',
+    'I resolve app, account and Windows issues for customers, partners and staff, and I build full-stack web projects to understand the systems I support.',
   location: 'Sakaka, Saudi Arabia',
 
   email: 'Ahmed.M.Saif.IT@gmail.com',
@@ -21,19 +22,18 @@ export const profile = {
   cvUrl: '/Ahmed-CV.pdf',
   cvDownloadName: 'Ahmed-AL-Talool-CV.pdf',
 
-  // Short facts shown under the hero text so a visitor understands the profile in seconds.
+  // Short facts under the hero text: only things no other section repeats.
   heroFacts: [
-    { icon: 'graduation', text: "Bachelor's in Information Technology" },
-    { icon: 'briefcase', text: 'IT Support & Application Support' },
     { icon: 'pin', text: 'Sakaka, Saudi Arabia' },
+    { icon: 'briefcase', text: 'On-site or remote, anywhere in Saudi Arabia' },
   ],
 
-  // Lines shown in the hero terminal card.
+  // Hero "terminal" card: headline numbers from current work (details live in Experience).
   terminal: [
-    { command: 'whoami', output: 'Ahmed AL-Talool' },
-    { command: 'field', output: 'Information Technology' },
-    { command: 'focus', output: 'IT Support · Data · Web Dev' },
-    { command: 'status', output: 'Always learning' },
+    { command: 'cases --daily', output: '~100 customer & partner cases' },
+    { command: 'accounts --verified', output: '6,000+ user & partner accounts' },
+    { command: 'it-support --users', output: '~15 staff kept working' },
+    { command: 'build --current', output: 'Multi-branch restaurant ordering system' },
   ],
 }
 

@@ -2,10 +2,9 @@
 export const ui = {
   nav: [
     { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'journey', label: 'Journey' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
     { id: 'education', label: 'Education' },
     { id: 'contact', label: 'Contact' },
   ],
@@ -31,7 +30,6 @@ export const ui = {
     switchLanguage: 'View this site in Arabic',
     // Screen-reader-only landmark labels.
     ariaQuickFacts: 'Quick facts',
-    ariaGuidingIdeas: 'Guiding ideas',
     ariaSkillsUsed: 'Skills used in this role',
     ariaTechnologies: 'Technologies',
     ariaProjectFacts: 'Project facts',
@@ -40,37 +38,24 @@ export const ui = {
   sections: {
     about: {
       eyebrow: 'About',
-      title: 'Technology, applied to real problems',
-      description:
-        'A short story about where I am, what I do every day, and where I am heading.',
+      title: 'Support work, backed by an IT degree and code',
+      description: 'Who I am, how I work, and what I am looking for next.',
     },
     skills: {
       eyebrow: 'Skills',
-      title: 'Skills & tools, grouped by how I use them',
-      description:
-        'No percentages — just an honest view of what I use daily, what I know well, and what I am actively building.',
-      legendTitle: 'How I describe levels',
-      stackTitle: 'Tech stack',
-      stackDescription: 'The languages and tools behind my projects.',
-    },
-    journey: {
-      eyebrow: 'Journey',
-      title: 'From technology to solutions',
-      description:
-        'Step by step — from computer fundamentals toward building things people can actually use.',
-      // Only shown for steps that are still moving (see journey.js `state`); finished steps carry no label.
-      states: { current: 'In progress', ongoing: 'Ongoing' },
+      title: 'Skills, grouped by how I use them',
+      description: 'No percentages: what I use every day at work, what I know well, and what I am building through projects.',
+      legendTitle: 'Levels',
     },
     experience: {
       eyebrow: 'Experience',
-      title: 'Where technical meets operational',
-      description: 'My current role combines user support, systems, and data accuracy.',
+      title: 'Where I make an impact today',
+      description: 'Customer, partner and staff support, measured in cases closed and accounts verified.',
     },
     projects: {
       eyebrow: 'Projects',
       title: 'Projects & case studies',
-      description:
-        'Real projects I have built while learning. Each one has a case study with the problem, the approach, and what I took away from it.',
+      description: 'Personal projects, each with a short case study: the problem, the approach, and what I learned.',
       viewCaseStudy: 'View case study',
       github: 'GitHub',
       liveDemo: 'Live demo',
@@ -79,15 +64,13 @@ export const ui = {
     education: {
       eyebrow: 'Education',
       title: 'Academic & technical background',
-      description: 'A formal IT foundation, extended with focused certificates.',
+      description: 'A formal IT degree, extended with focused certificates.',
       certificationsTitle: 'Certificates & courses',
-      areasTitle: 'Areas of study & practice',
     },
     contact: {
       eyebrow: 'Contact',
       title: "Let's talk",
-      description:
-        'Open to conversations about IT support, data, and web development opportunities.',
+      description: 'Open to IT Support, Help Desk and Application Support opportunities across Saudi Arabia.',
     },
   },
 
@@ -125,9 +108,8 @@ export const ui = {
   contact: {
     emailLabel: 'Email',
     phoneLabel: 'Phone',
-    locationLabel: 'Location',
     cvTitle: 'Prefer a quick overview?',
-    cvText: 'My CV summarises my skills, projects and education on a single page.',
+    cvText: 'My CV puts my experience, skills and education on a single page.',
     copy: 'Copy email',
     copied: 'Copied!',
     copyFailed: 'Copy failed — select the address manually.',
@@ -150,7 +132,7 @@ export const ui = {
   },
 
   footer: {
-    line: 'Built with curiosity, code, and continuous learning.',
+    line: 'IT & Application Support · Saudi Arabia',
     rights: 'All rights reserved.',
   },
 }

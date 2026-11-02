@@ -16,6 +16,46 @@
  */
 export const projects = [
   {
+    slug: 'restaurant-ordering-system',
+    name: 'Multi-Branch Restaurant Ordering System',
+    type: 'Full-stack web application',
+    status: 'In progress',
+    tagline: 'Online ordering, table reservations and live order tracking for a restaurant with several branches.',
+    summary:
+      'A personal full-stack project where each branch has its own menu, prices, opening hours and delivery fee, with an admin dashboard and a live kitchen display.',
+    overview: [
+      'A full-stack ordering system for a restaurant with several branches. Customers order online, reserve tables and follow their order live; each branch keeps its own menu, prices, opening hours and delivery fee.',
+      'Staff work from an admin dashboard with owner and branch-manager roles, and the kitchen sees new orders on a live display screen.',
+    ],
+    problem:
+      'A restaurant with several branches cannot run on one shared menu: prices, hours and delivery fees differ per branch, and orders have to reach the right kitchen immediately, without customers being able to change prices or order items that are out of stock.',
+    solution:
+      'A React front end with a Node.js / Express API and a MySQL database managed through Sequelize. Prices are calculated and stock is locked on the server, roles are enforced on the server, and the kitchen screen updates live as orders arrive.',
+    features: [
+      'Online ordering, table reservations and live order tracking',
+      'Per-branch menu, prices, opening hours and delivery fee',
+      'Admin dashboard with owner and branch-manager roles enforced on the server',
+      'Kitchen display screen with live order updates',
+      'Server-side pricing and stock locking to prevent tampering and overselling',
+      'Arabic / English with right-to-left support',
+      '64 automated tests and database migrations',
+    ],
+    technologies: ['React', 'Tailwind CSS', 'Node.js', 'Express', 'MySQL', 'Sequelize', 'Jest'],
+    challenges: [
+      'Keeping prices and stock on the server so the browser can never be the source of truth.',
+      'Modelling branches so each one can differ without duplicating the whole menu.',
+      'Pushing new orders to the kitchen screen live.',
+    ],
+    learned: [
+      'Anything that affects money or stock has to be decided on the server.',
+      'Automated tests and migrations make it safe to change the database as the project grows.',
+      'Roles are a product feature: an owner and a branch manager need different screens and limits.',
+    ],
+    links: { github: null, live: null },
+    screenshots: [],
+    cover: { icon: 'coffee', from: '#b45309', to: '#be123c' },
+  },
+  {
     slug: 'ahmed-portfolio',
     name: 'Ahmed AL-Talool Portfolio',
     type: 'Bilingual portfolio website',
@@ -35,7 +75,7 @@ export const projects = [
       'English and Arabic with full right-to-left layout',
       'Dark and light themes, remembered between visits',
       'All text stored as data, editable without touching components',
-      'Sections for experience, skills, education and a learning journey',
+      'Sections for experience, projects, skills, education and contact',
       "Downloadable CV and a contact form that opens the visitor's email app",
       'Automatic deploys from GitHub to Vercel with security headers',
     ],
