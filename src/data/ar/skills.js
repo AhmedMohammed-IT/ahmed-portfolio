@@ -36,12 +36,12 @@ export const skillGroups = [
     title: 'تطوير الويب',
     blurb: 'التقنيات التي أبني بها مشاريعي الشخصية المتكاملة.',
     items: [
-      { name: 'HTML وCSS', level: 'working' },
-      { name: 'JavaScript', level: 'working' },
-      { name: 'React', level: 'building' },
-      { name: 'Node.js وExpress', level: 'building' },
-      { name: 'Tailwind CSS', level: 'building' },
-      { name: 'Bootstrap', level: 'working' },
+      { name: 'HTML وCSS' },
+      { name: 'JavaScript' },
+      { name: 'React' },
+      { name: 'Node.js وExpress' },
+      { name: 'Tailwind CSS' },
+      { name: 'Bootstrap' },
     ],
   },
   {
