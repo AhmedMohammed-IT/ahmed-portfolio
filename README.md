@@ -29,10 +29,10 @@ src/
     index.js             language registry — builds { en, ar } from the folders below
     en/                  all English site content (see below)
     ar/                  the same content in Arabic — same file names, same keys
-  sections/              Hero, About, Skills, TechStack, Journey, Experience, Projects, Education, Contact
+  sections/              Hero, About, Experience, Projects, Skills, Education, Contact (in page order)
   components/
-    ui/                  Button, Reveal, SectionTitle, Tag, SocialLink, CopyButton, Icon, BrandIcon, TechIcon
-    cards/               ProjectCard, ProjectCover, ProjectLinks, ExperienceCard, SkillCard, FeatureCard,
+    ui/                  Button, Reveal, SectionTitle, Tag, SocialLink, CopyButton, Icon, BrandIcon
+    cards/               ProjectCard, ProjectCover, ProjectLinks, ExperienceCard, SkillCard,
                          TimelineItem, TerminalCard
     layout/              Navbar, Footer, Background, ScrollProgress, BackToTop, ScrollManager,
                          ThemeToggle, LanguageToggle
@@ -41,25 +41,29 @@ src/
 
 ## Where to edit content
 
-Everything visitors read is plain data in `src/data/en/` (English) and `src/data/ar/` (Arabic) — you never need to touch a component to change text. **Edit both folders together**, or the two languages will drift apart; `techStack.js` is the one exception (shared, English-only, since those are product names).
+Everything visitors read is plain data in `src/data/en/` (English) and `src/data/ar/` (Arabic) — you never need to touch a component to change text. **Edit both folders together**, or the two languages will drift apart.
 
 | To change…                               | Edit                       |
 | ---------------------------------------- | -------------------------- |
-| Name, tagline, email, phone, CV path, terminal lines, hero facts, GitHub/LinkedIn | `profile.js` |
+| Name, availability, tagline, email, phone, CV path, hero highlights, GitHub/LinkedIn | `profile.js` |
 | Nav labels, section headings, button text, form messages | `ui.js` |
-| About story, quick facts, "What I do", personal statement | `about.js` |
+| About story, quick facts, "How I work" statement | `about.js` |
 | Skill groups and levels                  | `skills.js`                |
-| Tech-stack icon grid (shared, edit once) | `en/techStack.js`          |
-| Learning journey timeline                | `journey.js`               |
 | Work experience                          | `experience.js`            |
-| Degree, certificates, areas of study     | `education.js`             |
+| Degree and certificates                  | `education.js`             |
 | Projects and case studies                | `projects.js`              |
 
-### Projects are hidden for now
+### One home for each piece of information
 
-Both `src/data/en/projects.js` and `src/data/ar/projects.js` export two lists. `projects` (what the site shows) is currently **empty in both**, so the Projects section, its menu item and the `/projects/…` pages are hidden automatically, and the remaining sections renumber themselves. The two prepared case studies (SAMA Captain Hub and the Coffee Shop Management System) are kept in `projectDrafts`, already translated.
+Each fact appears in one section only, so the page never repeats itself:
 
-To publish one: move its object from `projectDrafts` into `projects` **in both languages** (same `slug` in each so the URL matches) — the section, menu item, cards and case-study page all reappear on their own.
+- **Hero**: name, role, availability, location, and headline numbers.
+- **About**: personal story, what you are looking for, work mode, languages.
+- **Experience**: the detailed, measurable work history.
+- **Projects**: case studies. Unfinished drafts stay in `projectDrafts`.
+- **Skills**: the only list of skills and tools (the old tech-stack grid and "What I do" cards repeated it).
+- **Education**: degree and certificates.
+- **Contact**: email, LinkedIn, CV and the message form.
 
 ### Add a project
 
